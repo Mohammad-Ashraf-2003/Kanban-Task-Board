@@ -1,0 +1,25 @@
+.columnMenuList {
+  position: relative;
+  margin-top: 10px;
+  min-width: 120px;
+  background: white;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.columnMenuItem {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: #111827;
+}
+
+.columnMenuItem:hover {
+  background: rgba(59, 130, 246, 0.08);
+}

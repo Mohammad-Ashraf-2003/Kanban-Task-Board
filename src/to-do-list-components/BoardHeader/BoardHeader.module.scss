@@ -1,0 +1,31 @@
+.boardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.borderCardsByTitle {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d9deee;
+}
+.boardHeaderTitle {
+  gap: 7px;
+  display: flex;
+}
+.searchCardsByTitle {
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+.boardHeaderProcesses {
+  display: flex;
+  gap: 9px;
+}
+
+.addColumnsButton {
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #d9deee;
+  background: transparent;
+}
