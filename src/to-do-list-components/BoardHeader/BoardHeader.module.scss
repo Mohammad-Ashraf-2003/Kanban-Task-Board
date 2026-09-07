@@ -28,4 +28,10 @@
   padding: 10px;
   border: 1px solid #d9deee;
   background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background: #e8f5ee;
+    border-color: #2c7c54;
+  }
 }
