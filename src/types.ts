@@ -135,3 +135,8 @@ export type ICardItem = {
   onDeleteCard: (columnId: string, cardId: string) => void;
   getDescriptionPreview: (description: string) => string;
 };
+
+export type IHome = {
+  search: string;
+  setSearch: (value: string) => void;
+};
