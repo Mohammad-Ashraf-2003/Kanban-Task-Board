@@ -140,3 +140,19 @@ export type IHome = {
   search: string;
   setSearch: (value: string) => void;
 };
+
+
+export type MethodType = "GET" | "POST" | "PATCH" | "DELETE";
+export type RequestData =
+  SignInDTO
+  | SignUpDTO
+  ;
+// export type RequestParams =
+//   ProductParams | ReviewParams | ProductDetailsParams | undefined;
+
+export type IRequestBuilder = {
+  url: string;
+  method?: MethodType;
+  data?: RequestData;
+  params?: RequestParams;
+};

@@ -7,7 +7,7 @@ import type { IHome } from "../../types";
 import useHome from "./useHome";
 
 
-function Home({search,  setSearch }: IHome) {
+function Home({ search, setSearch }: IHome) {
     const {
         boardState,
         showAddColumnDialog,
