@@ -11,6 +11,9 @@ const BoardHeader = ({ search, onSearchChange, onAddColumn }: IBoardHeader) => {
       </div>
 
       <div className={styles.boardHeaderProcesses}>
+
+
+        
         <div className={styles.borderCardsByTitle}>
           <img src={SearchIcon} alt="" />
           <input
