@@ -1,0 +1,90 @@
+
+
+import BoardHeader from "../BoardHeader/BoardHeader";
+import styles from "./Home.module.scss";
+import BoardColumn from "../BoardColumn/BoardColumn";
+import type { IHome } from "../../types";
+import useHome from "./useHome";
+
+
+function Home({ search, setSearch }: IHome) {
+    const {
+        boardState,
+        showAddColumnDialog,
+        activeColumnMenuId,
+        toggleColumnMenu,
+        showAddCardDialog,
+        showEditCardDialog,
+        handleDragStart,
+        handleDragEnd,
+        draggedCardId,
+        handleDropToColumn,
+        hoveredDropCardId,
+        setHoveredDropCardId,
+        handleDragOverCard,
+        handleDropToCard,
+        hoveredDropColumn,
+        setHoveredDropColumn,
+        showDeleteColumnDialog,
+        getFilteredCardIdsForColumn,
+        handleDeleteCard,
+        getDescriptionPreview,
+    } = useHome({ search, setSearch });
+
+    return (
+        <section className={styles.center}>
+            <div className={styles.board}>
+                <BoardHeader
+                    search={search}
+                    onSearchChange={setSearch}
+                    onAddColumn={showAddColumnDialog}
+                />
+
+                <div className={styles.columns}>
+                    {boardState.columnOrder.map((columnId) => {
+                        const column = boardState.columns[columnId];
+
+                        const cards = getFilteredCardIdsForColumn(column.id).map(
+                            (cardId) => boardState.cards[cardId],
+                        );
+
+                        return (
+                            <BoardColumn
+                                key={column.id}
+                                column={column}
+                                cards={cards}
+                                isMenuOpen={activeColumnMenuId === column.id}
+                                hoveredDropColumn={hoveredDropColumn}
+                                onToggleMenu={toggleColumnMenu}
+                                onAddCard={showAddCardDialog}
+                                onDeleteColumn={showDeleteColumnDialog}
+                                onEditCard={showEditCardDialog}
+                                onDeleteCard={handleDeleteCard}
+                                onDragStart={handleDragStart}
+                                onDragEnd={handleDragEnd}
+                                draggedCardId={draggedCardId}
+                                hoveredDropCardId={hoveredDropCardId}
+                                onDragOverCard={handleDragOverCard}
+                                onDragLeaveCard={() => setHoveredDropCardId(null)}
+                                onDropToCard={(columnId, cardId) => {
+                                    handleDropToCard(columnId, cardId);
+                                    handleDragEnd();
+                                }}
+                                onDragOverColumn={setHoveredDropColumn}
+                                onDragLeaveColumn={() => setHoveredDropColumn(null)}
+                                onDropToColumn={(columnId) => {
+                                    handleDropToColumn(columnId);
+                                    setHoveredDropColumn(null);
+                                    handleDragEnd();
+                                }}
+                                getDescriptionPreview={getDescriptionPreview}
+                            />
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    )
+}
+
+export default Home;
