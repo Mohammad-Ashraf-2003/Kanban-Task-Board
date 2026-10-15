@@ -64,7 +64,7 @@ export const initialState: BoardState = {
   columns: {
     "column-1": {
       id: "column-1",
-      title: "To Do",
+      title: "To Do",,,,,,
       cardIds: ["card-1", "card-2", "card-3"],
     },
     "column-2": {
